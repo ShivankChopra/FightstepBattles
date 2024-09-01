@@ -1,7 +1,8 @@
 #pragma once
 
-#include "RenderComponent.h";
-#include "PhysicsComponent.h";
+#include "RenderComponent.h"
+#include "PhysicsComponent.h"
+#include "InputComponent.h"
 
 enum class ComponentType
 {
@@ -15,6 +16,11 @@ public:
 	GameComponent(sf::Texture&, b2World&, ComponentType, int x, int y);
 	~GameComponent();
 
+	void jump();
+	void moveLeft();
+	void moveRight();
+
+	void handleInput(sf::Event&);
 	void update();
 	void render(sf::RenderWindow&);
 
@@ -26,5 +32,6 @@ private:
 
 	RenderComponent* _renderComponent;
 	PhysicsComponent* _physicsComponent;
+	InputComponent* _inputComponent;
 };
 

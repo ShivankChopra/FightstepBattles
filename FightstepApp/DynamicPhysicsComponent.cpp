@@ -19,6 +19,21 @@ b2Vec2 DynamicPhysicsComponent::getPosition()
 	return _body->GetPosition();
 }
 
+void DynamicPhysicsComponent::jump()
+{
+	_body->ApplyLinearImpulseToCenter(b2Vec2(0, 3 / PPM), true);
+}
+
+void DynamicPhysicsComponent::moveLeft()
+{
+	_body->ApplyLinearImpulseToCenter(b2Vec2(1 / PPM, 0), true);
+}
+
+void DynamicPhysicsComponent::moveRight()
+{
+	_body->ApplyLinearImpulseToCenter(b2Vec2(-1 / PPM, 0), true);
+}
+
 void DynamicPhysicsComponent::_setupBody(b2World& worldRef)
 {
 	b2BodyDef boxBodyDef;

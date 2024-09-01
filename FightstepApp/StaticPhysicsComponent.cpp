@@ -19,6 +19,21 @@ b2Vec2 StaticPhysicsComponent::getPosition()
 	return _body->GetPosition();
 }
 
+void StaticPhysicsComponent::jump()
+{
+	// Not implemented
+}
+
+void StaticPhysicsComponent::moveLeft()
+{
+	// Not implemented
+}
+
+void StaticPhysicsComponent::moveRight()
+{
+	// Not implemented
+}
+
 void StaticPhysicsComponent::_setupBody(b2World& worldRef)
 {
 	b2BodyDef boxBodyDef;

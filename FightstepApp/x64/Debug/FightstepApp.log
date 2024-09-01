@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\Shivank Chopra\Documents\Projects\SFML Projects\FightstepBattles\FightstepApp\GameComponent.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Shivank Chopra\Documents\Projects\SFML Projects\FightstepBattles\FightstepApp\GameComponent.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  FightstepApp.vcxproj -> C:\Users\Shivank Chopra\Documents\Projects\SFML Projects\FightstepBattles\x64\Debug\FightstepApp.exe

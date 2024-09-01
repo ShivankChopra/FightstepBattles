@@ -30,6 +30,16 @@ GameWorld::~GameWorld()
 	}
 }
 
+void GameWorld::handleInput(sf::Event& event)
+{
+	_player->handleInput(event);
+
+	for (int i = 0; i < _villianList.size(); i++)
+	{
+		_villianList[i]->handleInput(event);
+	}
+}
+
 void GameWorld::update()
 {
 	_physicsWorld.Step(1 / 60.f, 6, 3);

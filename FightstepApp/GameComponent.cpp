@@ -1,6 +1,7 @@
 #include "GameComponent.h"
 #include "DynamicPhysicsComponent.h"
 #include "StaticPhysicsComponent.h"
+#include "AiInputComponent.h"
 
 // Pixels per meter. Box2D uses metric units, so we need to define a conversion
 #define PPM 30.0F
@@ -33,6 +34,42 @@ GameComponent::~GameComponent()
 {
 	delete _physicsComponent;
 	delete _renderComponent;
+	delete _inputComponent;
+}
+
+void GameComponent::jump()
+{
+	_physicsComponent->jump();
+}
+
+void GameComponent::moveLeft()
+{
+	_physicsComponent->moveLeft();
+}
+
+void GameComponent::moveRight()
+{
+	_physicsComponent->moveRight();
+}
+
+void GameComponent::handleInput(sf::Event& event)
+{
+	if (_inputComponent)
+	{
+		Command* command = _inputComponent->getCommand();
+
+		switch (command->getType()) {
+		case CommandType::JUMP:
+			this->jump();
+			break;
+		case CommandType::MOVE_LEFT:
+			this->moveLeft();
+			break;
+		case CommandType::MOVE_RIGHT:
+			this->moveRight();
+			break;
+		}
+	}
 }
 
 void GameComponent::update()
@@ -63,13 +100,19 @@ void GameComponent::_constructHorizontalWall(sf::Texture& texture, b2World& worl
 void GameComponent::_constructEnemy(sf::Texture& texture, b2World& world, int x, int y)
 {
 	_renderComponent = new RenderComponent(texture);
+
 	sf::Vector2f dimensions = _renderComponent->getDimensions();
 	_physicsComponent = new DynamicPhysicsComponent(world, x, y, dimensions.x, dimensions.y);
+
+	_inputComponent = new AiInputComponent();
 }
 
 void GameComponent::_constructPlayer(sf::Texture& texture, b2World& world, int x, int y)
 {
 	_renderComponent = new RenderComponent(texture);
+
 	sf::Vector2f dimensions = _renderComponent->getDimensions();
 	_physicsComponent = new DynamicPhysicsComponent(world, x, y, dimensions.x, dimensions.y);
+
+	_inputComponent = new AiInputComponent();
 }

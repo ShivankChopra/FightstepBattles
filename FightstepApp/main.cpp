@@ -11,7 +11,7 @@ int main()
 	playerTexture.loadFromFile(assetsBasePath + "images\\player.png");
 
 	sf::Texture wallTexture;
-	wallTexture.loadFromFile(assetsBasePath + "images\\wall.jpg");
+	wallTexture.loadFromFile(assetsBasePath + "images\\wall2.jpg");
 
 	sf::RenderWindow window(sf::VideoMode(1080, 720), "Fightstep Battles!");
 

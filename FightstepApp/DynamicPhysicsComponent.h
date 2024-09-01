@@ -10,6 +10,10 @@ public:
 
 	b2Vec2 getPosition() override;
 
+	void jump() override;
+	void moveLeft() override;
+	void moveRight() override;
+
 private:
 	void _setupBody(b2World&);
 

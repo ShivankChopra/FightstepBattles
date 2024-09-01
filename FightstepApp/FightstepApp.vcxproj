@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AiInputComponent.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="GameComponent.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
@@ -143,8 +145,11 @@
     <ClCompile Include="StaticPhysicsComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AiInputComponent.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="GameComponent.h" />
     <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />

@@ -11,4 +11,10 @@ class PhysicsComponent
 {
 public:
 	virtual b2Vec2 getPosition() = 0;
+
+	virtual void jump() = 0;
+
+	virtual void moveLeft() = 0;
+
+	virtual void moveRight() = 0;
 };
