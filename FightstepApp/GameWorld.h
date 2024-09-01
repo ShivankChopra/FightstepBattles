@@ -10,7 +10,7 @@ public:
 	GameWorld(sf::Texture& playerTexture, sf::Texture& villianTexture, sf::Texture& wallTexture);
 	~GameWorld();
 
-	void handleInput(sf::Event&);
+	bool handleInput(sf::Event&, sf::Time&);
 	void update();
 	void render(sf::RenderWindow&);
 

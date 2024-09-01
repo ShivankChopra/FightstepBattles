@@ -3,8 +3,15 @@
 AiInputComponent::AiInputComponent() : _counter(0), _idleCommand(new Command(CommandType::IDLE))
 {
 	_behaviourSequence.push_back(new Command(CommandType::JUMP));
-	_behaviourSequence.push_back(new Command(CommandType::MOVE_LEFT));
 	_behaviourSequence.push_back(new Command(CommandType::MOVE_RIGHT));
+	_behaviourSequence.push_back(new Command(CommandType::JUMP));
+	_behaviourSequence.push_back(new Command(CommandType::MOVE_LEFT));
+	_behaviourSequence.push_back(new Command(CommandType::MOVE_LEFT));
+	_behaviourSequence.push_back(new Command(CommandType::JUMP));
+	_behaviourSequence.push_back(new Command(CommandType::MOVE_RIGHT));
+	_behaviourSequence.push_back(new Command(CommandType::MOVE_RIGHT));
+	_behaviourSequence.push_back(new Command(CommandType::JUMP));
+	_behaviourSequence.push_back(new Command(CommandType::MOVE_LEFT));
 }
 
 AiInputComponent::~AiInputComponent()

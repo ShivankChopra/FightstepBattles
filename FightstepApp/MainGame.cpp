@@ -9,7 +9,6 @@ MainGame::MainGame(sf::RenderWindow& windowRef, sf::Texture& playerTexture, sf::
 	_playerTexture(playerTexture),
 	_villianTexture(villianTexture),
 	_wallTexture(wallTexture)
-
 {
 	_world = new GameWorld(_playerTexture, _villianTexture, _wallTexture);
 }
@@ -36,11 +35,8 @@ void MainGame::run()
 
 		elapsedTime += clock.restart();
 
-		if (elapsedTime.asSeconds() >= 1.618f) // Golden ratio ;-)
-		{
-			_world->handleInput(pollEvent);
+		if (_world->handleInput(pollEvent, elapsedTime))
 			elapsedTime = sf::Time::Zero;
-		}
 
 		_world->update();
 

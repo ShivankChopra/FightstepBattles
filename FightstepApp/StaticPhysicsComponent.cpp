@@ -45,8 +45,8 @@ void StaticPhysicsComponent::_setupBody(b2World& worldRef)
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.density = 0.1f;
-	fixtureDef.friction = 0.7f;
-	fixtureDef.restitution = 1.0f;
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.5f;
 	fixtureDef.shape = &boxShape;
 
 	_body = worldRef.CreateBody(&boxBodyDef);

@@ -30,13 +30,22 @@ GameWorld::~GameWorld()
 	}
 }
 
-void GameWorld::handleInput(sf::Event& event)
+bool GameWorld::handleInput(sf::Event& event, sf::Time& elapsedTime)
 {
 	_player->handleInput(event);
 
-	for (int i = 0; i < _villianList.size(); i++)
+	if (elapsedTime.asSeconds() >= 0.618f)
 	{
-		_villianList[i]->handleInput(event);
+		for (int i = 0; i < _villianList.size(); i++)
+		{
+			_villianList[i]->handleInput(event);
+		}
+
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 

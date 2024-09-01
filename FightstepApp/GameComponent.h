@@ -30,6 +30,7 @@ private:
 	void _constructEnemy(sf::Texture&, b2World&, int x, int y);
 	void _constructPlayer(sf::Texture&, b2World&, int x, int y);
 
+	ComponentType _type;
 	RenderComponent* _renderComponent;
 	PhysicsComponent* _physicsComponent;
 	InputComponent* _inputComponent;

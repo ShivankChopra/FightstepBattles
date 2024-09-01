@@ -139,6 +139,7 @@
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="sfmlBox2dTest.cpp" />
     <ClCompile Include="DynamicPhysicsComponent.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="PhysicsComponent.h" />
+    <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="DynamicPhysicsComponent.h" />
     <ClInclude Include="StaticPhysicsComponent.h" />

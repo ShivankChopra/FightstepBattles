@@ -2,11 +2,12 @@
 #include "DynamicPhysicsComponent.h"
 #include "StaticPhysicsComponent.h"
 #include "AiInputComponent.h"
+#include "PlayerInputComponent.h"
 
 // Pixels per meter. Box2D uses metric units, so we need to define a conversion
 #define PPM 30.0F
 
-GameComponent::GameComponent(sf::Texture& texture, b2World& world, ComponentType componentType, int x, int y)
+GameComponent::GameComponent(sf::Texture& texture, b2World& world, ComponentType componentType, int x, int y) : _type(componentType)
 {
 	// @TODO : need to create proper entities factories
 
@@ -56,7 +57,12 @@ void GameComponent::handleInput(sf::Event& event)
 {
 	if (_inputComponent)
 	{
-		Command* command = _inputComponent->getCommand();
+		Command* command = nullptr;
+
+		if (_type == ComponentType::PLAYER)
+			command = _inputComponent->getCommand(event);
+		else
+			command = _inputComponent->getCommand();
 
 		switch (command->getType()) {
 		case CommandType::JUMP:
@@ -114,5 +120,5 @@ void GameComponent::_constructPlayer(sf::Texture& texture, b2World& world, int x
 	sf::Vector2f dimensions = _renderComponent->getDimensions();
 	_physicsComponent = new DynamicPhysicsComponent(world, x, y, dimensions.x, dimensions.y);
 
-	_inputComponent = new AiInputComponent();
+	_inputComponent = new PlayerInputComponent();
 }

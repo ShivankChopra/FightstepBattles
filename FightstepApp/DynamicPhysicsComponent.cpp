@@ -21,17 +21,17 @@ b2Vec2 DynamicPhysicsComponent::getPosition()
 
 void DynamicPhysicsComponent::jump()
 {
-	_body->ApplyLinearImpulseToCenter(b2Vec2(0, 3 / PPM), true);
+	_body->ApplyLinearImpulseToCenter(b2Vec2(0, 10 / PPM), true);
 }
 
 void DynamicPhysicsComponent::moveLeft()
 {
-	_body->ApplyLinearImpulseToCenter(b2Vec2(1 / PPM, 0), true);
+	_body->ApplyLinearImpulseToCenter(b2Vec2(-0.03 / PPM, 0), true);
 }
 
 void DynamicPhysicsComponent::moveRight()
 {
-	_body->ApplyLinearImpulseToCenter(b2Vec2(-1 / PPM, 0), true);
+	_body->ApplyLinearImpulseToCenter(b2Vec2(0.03 / PPM, 0), true);
 }
 
 void DynamicPhysicsComponent::_setupBody(b2World& worldRef)
@@ -46,7 +46,7 @@ void DynamicPhysicsComponent::_setupBody(b2World& worldRef)
 	b2FixtureDef fixtureDef;
 	fixtureDef.density = 0.1f;
 	fixtureDef.friction = 0.3f;
-	fixtureDef.restitution = 0.9f;
+	fixtureDef.restitution = 0.3f;
 	fixtureDef.shape = &boxShape;
 
 	_body = worldRef.CreateBody(&boxBodyDef);
