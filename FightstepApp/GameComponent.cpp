@@ -10,7 +10,6 @@
 GameComponent::GameComponent(sf::Texture& texture, b2World& world, ComponentType componentType, int x, int y) : _type(componentType)
 {
 	// @TODO : need to create proper entities factories
-
 	switch (componentType)
 	{
 	case ComponentType::PLAYER:
@@ -28,7 +27,6 @@ GameComponent::GameComponent(sf::Texture& texture, b2World& world, ComponentType
 	default:
 		throw std::runtime_error("Unhandled component type while creating game component.");
 	}
-
 }
 
 GameComponent::~GameComponent()
@@ -37,6 +35,15 @@ GameComponent::~GameComponent()
 	delete _renderComponent;
 	delete _inputComponent;
 }
+
+/*
+@TODO: Need to take care of following points:
+
+1. We need to define a clear system for conversion between box2d and sfml sizes, length, and displacement.
+2. We need to create a system of determining force based on distance that we need to cover, factoring mass and distance.
+3. Image may be of different sizes, so either create compress, or scale down in sfml. 
+   This should not impact inter conversion and handling with box2d.
+*/
 
 void GameComponent::jump()
 {
